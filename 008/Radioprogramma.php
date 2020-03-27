@@ -1,24 +1,33 @@
 <?php
-
-class Radioprogramma {
+class Radioprogramma 
+{
     private $naam = "";
     private $omschrijving = "";
-    private $liedjes = ["liedje 1", "liedje 2", "liedje 3"];
+    private $liedjes = array();
 
-    public function setName($name) {
+    public function addLiedje($liedje) {
+        $this->liedjes[] = $liedje;
+    }
+
+    public function setName($name) 
+    {
         $this->naam = $name;
     }
 
-    public function setDescription($description) {
+    public function setDescription($description) 
+    {
         $this->omschrijving = $description;
     }
 
-    public function getLiedjes() {
+    public function getLiedjes() 
+    {
         return $this->liedjes;
     }
 
-    public function getProgramma() {
-        return $this->naam . "<br>" . $this->omschrijving;
+    public function getProgramma() 
+    {
+        return array("naam" => $this->naam,
+                     "omschrijving" => $this->omschrijving);
     }
 }
 

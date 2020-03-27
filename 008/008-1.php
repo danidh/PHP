@@ -1,12 +1,22 @@
 <?php
 
 include("Radioprogramma.php");
+include("Liedje.php");
 
 $programma = new Radioprogramma();
-
-
 $programma->setName("Mijn Programma");
 $programma->setDescription("Mijn Programma omschrijving");
-print_r($programma->getLiedjes());
-echo "<br>";
-echo $programma->getProgramma();
+
+foreach($programma->getProgramma() as $p) 
+{
+    echo $p."<br>";
+}
+
+$liedje = new Liedje("Liedje Titel", "Liedje Artiest");
+
+$programma->addLiedje($liedje);
+
+foreach ($programma->getLiedjes() as $l) 
+{
+    echo $l->getTitel()." - " . $l->getArtiest();
+}
