@@ -16,7 +16,7 @@
 
     <?php
 
-include("Aap.php");
+include "Aap.php";
 
 $apen[] = "Baviaan";
 $apen[] = "Guereza";
@@ -35,7 +35,8 @@ $apen[] = "Kuifaap";
 $apen[] = "Mensaap";
 $apen[] = "Spinaap";
 
-foreach($apen as $a) {
+foreach($apen as $a) 
+{
     $aap = new Aap();
     $aap->setSoort($a);
     echo $aap->makeButton();

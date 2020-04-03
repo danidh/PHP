@@ -1,6 +1,7 @@
 <?php
 
-class Liedje {
+class Liedje 
+{
     private $titel;
     private $artiest;
 

@@ -5,7 +5,8 @@ class Radioprogramma
     private $omschrijving = "";
     private $liedjes = array();
 
-    public function addLiedje($liedje) {
+    public function addLiedje($liedje) 
+    {
         $this->liedjes[] = $liedje;
     }
 
