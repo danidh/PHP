@@ -1,29 +1,3 @@
-<?php
-
-include "Auto.php";
-
-$autos = array(new Auto("Audi", 56000, "img/audi1.jpg"),
-               new Auto("Audi", 134000, "img/audi2.jpg"),
-               new Auto("BMW", 63000, "img/bmw1.jpg"),
-               new Auto("BMW", 94000, "img/bmw2.jpg"),
-               new Auto("BMW", 170000, "img/bmw3.jpg"),
-               new Auto("Bugatti", 1500000, "img/bugatti1.jpg"),
-               new Auto("Bugatti", 2500000, "img/bugatti2.jpg"),
-               new Auto("Ferrari", 256000, "img/ferrari1.jpg"),
-               new Auto("Ferrari", 467000, "img/ferrari2.jpg"),
-               new Auto("Koenigsegg", 3000000, "img/koenigsegg1.jpg"),
-               new Auto("Koenigsegg", 1900000, "img/koenigsegg2.jpg"),
-               new Auto("Lamborghini", 250000, "img/lamborghini1.jpg"),
-               new Auto("Lamborghini", 680000, "img/lamborghini2.jpg"),
-               new Auto("Lamborghini", 1200000, "img/lamborghini3.jpg"),
-               new Auto("Mercedes", 45000, "img/mercedes1.jpg"),
-               new Auto("Mercedes", 200000, "img/mercedes2.jpg"),
-               new Auto("Mercedes", 350000, "img/mercedes3.jpg")
-              );
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,19 +10,19 @@ $autos = array(new Auto("Audi", 56000, "img/audi1.jpg"),
 <body>
     <div class="container">
         <div class="formcontainer">
-            <form action="Autooverzicht.php" method="POST">
+            <form action="wheely.php" method="GET">
 
                 <label for="merk">Merk</label>
                 <br>
                 <select name="merk" id="merk">
                     <option value="all">Alle merken</option>
-                    <option value="audi">Audi</option>
-                    <option value="bmw">BMW</option>
-                    <option value="bugatti">Bugatti</option>
-                    <option value="ferrari">Ferrari</option>
-                    <option value="koenigsegg">Koenigsegg</option>
-                    <option value="lamborghini">Lamborghini</option>
-                    <option value="mercedes">Mercedes Benz</option>
+                    <option value="Audi">Audi</option>
+                    <option value="Bmw">BMW</option>
+                    <option value="Bugatti">Bugatti</option>
+                    <option value="Ferrari">Ferrari</option>
+                    <option value="Koenigsegg">Koenigsegg</option>
+                    <option value="Lamborghini">Lamborghini</option>
+                    <option value="Mercedes">Mercedes Benz</option>
                 </select>
 
                 <br>
@@ -71,3 +45,33 @@ $autos = array(new Auto("Audi", 56000, "img/audi1.jpg"),
     </div>
 </body>
 </html>
+
+<?php
+
+include "Auto.php";
+include "Autooverzicht.php";
+
+$minPrice;
+$maxPrice;
+$merkfilter;
+
+$minPrice = isset($_GET['minprice']) && !empty($_GET['minprice']) ? $_GET['minprice'] : 0;
+$maxPrice = isset($_GET['maxprice']) && !empty($_GET['maxprice']) ? $_GET['maxprice'] : 9999999999;
+$merkfilter = isset($_GET['merk']) && !empty($_GET['merk']) ? $_GET['merk'] : "all";
+
+$autoos = new Autooverzicht;
+
+foreach($autoos->getGefilterdeLijst($minPrice, $maxPrice, $merkfilter) as $auto) {
+    echo "<div class='carview'>
+            <img src=" . $auto->getImage() . ">
+            <div class='infoview'>
+                <p class='info brandview'> Merk: " . $auto->getMerk() . "</p>
+                <p class='info priceview'> Prijs: €" . $auto->getPrijs() . "</p>
+            </div>
+          </div>";
+}
+
+
+
+?>
+

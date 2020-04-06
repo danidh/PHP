@@ -35,7 +35,8 @@ input {
 }
 
 .submit {
-    width: 20px;
+    width: 200px;
+    margin: 0;
 }
 
 select:focus {
@@ -46,4 +47,28 @@ select:focus {
 input:focus {
     box-shadow: 0 0 5px #66AFE9;
     border: 1px solid #66AFE9;
+}
+
+.carview {
+    display: inline-block;
+    margin: 30px;
+    position: relative;
+}
+
+.carview img {
+    border-radius: 10px;
+}
+
+.infoview {
+    position: absolute;
+    top: 5%;
+    margin: auto 0;
+    padding-left: 10px;
+    background-color: hsla(0, 0%, 100%, 0.6);
+    width: 100%;
+}
+
+.info {
+    margin: 0;
+    font-size: 1.1rem;
 }
