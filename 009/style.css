@@ -1,0 +1,29 @@
+body {
+    font-family: 'Baloo Thambi 2', cursive;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+a {
+    text-decoration: none;
+    padding: 10px;
+}
+
+a:hover {
+    background-color: #dfdfdfa9;
+}
+
+table {
+    margin-top: 20px;
+    /* border-collapse: collapse; */
+    width: 100%;
+  }
+  
+th, td {
+    border-bottom: 1px solid black;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}

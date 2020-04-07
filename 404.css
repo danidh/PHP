@@ -1,0 +1,24 @@
+body {
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 10rem;
+    margin: 10% 0 0 0;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+}
+
+a {
+    background-color: #5db6ff;
+    padding: 20px;
+    border-radius: 1000px;
+    text-decoration: none;
+}
+
+.margin_bottom {
+    margin-bottom: 35px;
+}
